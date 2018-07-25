@@ -1,0 +1,25 @@
+{
+    "forge_marker": 1,
+    "defaults": { },
+    "variants": {
+        "inventory": { "model": "hpengineering:metalpress" },
+        "part": {
+            "base": {
+                "model": "hpengineering:test1.obj",
+                "transform": { "scale": 0.1 }
+            },
+            "blade": {
+                "model": "hpengineering:presser.obj",
+                "transform": { "scale": 0.1 }
+            }
+        },
+        "facing": {
+            "up": { "transform": { "scale": 0.25 }},
+            "down": { "transform": { "scale": 0.25 }},
+            "north": { "transform": { "scale": 0.25 }},
+            "east": { "transform": { "post-rotation": { "y": 90 }, "scale": 0.25 } },
+            "south": { "transform": { "post-rotation": { "y": 180 }, "scale": 0.25 } },
+            "west": { "transform": { "post-rotation": { "y": 270 },"scale": 0.25 } }
+        }
+    }
+}
