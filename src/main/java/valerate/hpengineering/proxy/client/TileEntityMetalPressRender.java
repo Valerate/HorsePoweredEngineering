@@ -11,13 +11,14 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import se.gory_moon.horsepower.blocks.BlockHPBase;
+import se.gory_moon.horsepower.client.renderer.TileEntityHPBaseRenderer;
 import se.gory_moon.horsepower.tileentity.TileEntityHPBase;
 import valerate.hpengineering.blocks.MetalPress;
 import valerate.hpengineering.blocks.models.MetalPressModels;
 import valerate.hpengineering.entity.TileEntityMetalPress;
 import se.gory_moon.horsepower.util.RenderUtils;
 
-public class TileEntityMetalPressRender extends TileEntityBaseRender<TileEntityMetalPress> {
+public class TileEntityMetalPressRender extends TileEntityHPBaseRenderer<TileEntityMetalPress> {
 	
 	
 	 @Override
@@ -27,13 +28,7 @@ public class TileEntityMetalPressRender extends TileEntityBaseRender<TileEntityM
 	        BufferBuilder buffer = tessellator.getBuffer();
 	        BlockRendererDispatcher dispatcher = Minecraft.getMinecraft().getBlockRendererDispatcher();
 	        IBlockState blockState = te.getWorld().getBlockState( te.getPos() );
-	        System.out.println( te.getPos() );
 	        if (!(blockState.getBlock() instanceof BlockHPBase)) return;
-	        
-	        
-	        
-	       
-
 	        IBlockState bladeState = blockState.withProperty(MetalPress.PART, MetalPressModels.BLADE);
 	        if (!(bladeState.getBlock() instanceof BlockHPBase)) return;
 	        IBakedModel bladeModel = dispatcher.getBlockModelShapes().getModelForState(bladeState);
@@ -58,9 +53,9 @@ public class TileEntityMetalPressRender extends TileEntityBaseRender<TileEntityM
 	        GlStateManager.translate( x, y, z );
 
 	        // Apply GL transformations relative to the center of the block: 1) TE rotation and 2) crank rotation
-	        //GlStateManager.translate( 0.5, 0.5, 0.5 );
+	        //GlStateManager.translate( 0.5, 0.5, 0.5 ); //??
 	        GlStateManager.translate( 0, 1+ te.getVisualWindup(), 0 );
-	        //GlStateManager.translate( -0.5, -0.5, -0.5 );
+	        //GlStateManager.translate( -0.5, -0.5, -0.5 );  //??
 
 	        tessellator.draw();
 	        GlStateManager.popMatrix();
